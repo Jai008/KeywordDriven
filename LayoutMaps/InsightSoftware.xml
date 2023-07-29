@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><?xml-stylesheet type="text/xsl" href="SwtFixtureDocumentor.xsl"?><ui application="insight" applicationfullname="insightsoftware" category="home" description="homepage flow" menuName="insightsoftware.com" name="insightsoftware.com" schemaVersion="1.0.0.0">
+	
+	<form definitionID="insight" existenceValidationWidget="InsightSoftwareHomePage" name="InsightSoftware" type="main">			
+						
+			<widget description="InsightSoftwareHomePage" id="//div[@class='insightsoftware-logo']" name="InsightSoftwareHomePage" type="genericButton"/>		
+
+        <!-- Login-->
+		    <widget description="Solutions link" id="//a[contains(text(),'Solutions')]" name="SolutionsLink" type="genericButton"/>
+			<widget description="Atlas link" id="//a[contains(text(),'Atlas')]" name="AtlasLink" type="genericButton"/>
+            <widget description="Email textBox" id="input_33_1" name="EmailTextBox" type="genericTextBox"/>
+			
+		
+	</form>
+	
+
+</ui>

@@ -1,0 +1,24 @@
+Testsuite: org.sonata.keywordDriven.KWTest
+Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.029 sec
+------------- Standard Output ---------------
+xml file  = C:\Users\jayachandra.m\Desktop\Hackathon\Framework\TestCases\DemoTest\config.xml
+test case file: C:\Users\jayachandra.m\Desktop\Hackathon\Framework\TestCases\DemoTest\~$vieworderS3_TC1.xlsx
+------------- ---------------- ---------------
+
+Testcase: initializationError took 0.002 sec
+	Caused an ERROR
+org.apache.poi.openxml4j.exceptions.InvalidFormatException: Package should contain a content type part [M1.13]
+org.apache.poi.POIXMLException: org.apache.poi.openxml4j.exceptions.InvalidFormatException: Package should contain a content type part [M1.13]
+	at org.apache.poi.util.PackageHelper.open(PackageHelper.java:39)
+	at org.apache.poi.xssf.usermodel.XSSFWorkbook.<init>(XSSFWorkbook.java:258)
+	at org.sonata.keywordDriven.testcase.Parser.createArr(Parser.java:59)
+	at org.sonata.keywordDriven.testcase.Parser.parse(Parser.java:42)
+	at org.sonata.keywordDriven.generic.base.TestBase.data(TestBase.java:102)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+	at java.lang.reflect.Constructor.newInstance(Constructor.java:422)
+Caused by: org.apache.poi.openxml4j.exceptions.InvalidFormatException: Package should contain a content type part [M1.13]
+	at org.apache.poi.openxml4j.opc.ZipPackage.getPartsImpl(ZipPackage.java:203)
+	at org.apache.poi.openxml4j.opc.OPCPackage.getParts(OPCPackage.java:673)
+	at org.apache.poi.openxml4j.opc.OPCPackage.open(OPCPackage.java:274)
+	at org.apache.poi.util.PackageHelper.open(PackageHelper.java:37)
+

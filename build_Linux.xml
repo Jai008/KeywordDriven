@@ -1,0 +1,106 @@
+<project>
+	<property name="lib.dir" value="./deps/"/>
+	<property name="report.xml" value="./Report/Junit/xml" />
+	<property name="report.html" value="./Report/Junit/html" />
+	<property name="reportExtent" value="./Report/Extent" />
+	<property name="screenshotpath" value="./Report/Images" />
+	<property name="buildJar" value="keywordDriven-0.0.5_1.jar" />
+	
+	<taskdef resource="net/sf/antcontrib/antcontrib.properties">
+		<classpath>
+			<pathelement location="./deps/ant-contrib-0.6-bin/lib/ant-contrib-0.6.jar"/>
+		</classpath>
+	</taskdef>
+	
+	<target name="runtest">
+		<delete dir="${report.xml}"/>	
+		<mkdir dir="${report.xml}"/>
+		
+		<delete dir="${report.html}"/>	
+		<mkdir dir="${report.html}"/>
+		
+<!--	<delete dir="${reportExtent}"/>	
+		<mkdir dir="${reportExtent}"/> -->
+
+<!--	<delete dir="${screenshotpath}"/>	
+		<mkdir dir="${screenshotpath}"/> -->
+	<foreach target="suite" param="suiteFolderName">
+	  <path>
+	    <dirset dir="./TestCases/" casesensitive="yes">
+			<include name="*/" />			
+	    </dirset>
+		</path>
+	  </foreach>
+	</target>
+
+	<target name="suite">
+		<echo message="suite: suiteFolderName= ${suiteFolderName}" />	
+	  <foreach target="test" param="suiteName">	  
+		<fileset dir="${suiteFolderName}" casesensitive="yes" >
+			<include name="**/*.xls*" />
+			</fileset>
+	  </foreach>
+	</target>
+
+	<target name="test" description="All the tests.">
+		<echo message="test: Suite = ${suiteName}"/>
+		
+		<dirname file="${suiteName}" property="suite.dir" />
+		<echo message="test: suite.dir = ${suite.dir}"/>
+		
+		<first id="first">
+			<fileset dir="${suite.dir}" includes="**/*.xml" />
+		</first>
+
+		<property name="configFileAbs" value="${toString:first}" />
+		
+		<echo message="test: configFileAbs = ${configFileAbs}"/>
+		
+	  	<propertyregex property="configFile" input="${configFileAbs}"
+			regexp=".*/([^/]*).*" select="\1"			
+			casesensitive="false" />
+		<echo message="test: configFile = ${configFile}"/>
+	  
+	  
+	  	<propertyregex property="testSuite" input="${suiteName}"
+			regexp=".*/([^/]*).*" select="\1"			
+			casesensitive="false" />
+		<propertyregex property="testSuiteWithoutExt" input="${testSuite}"
+			regexp="([^\.]*)" select="\0"			
+			casesensitive="false" />
+		<echo message="test: testSuiteWithoutExt = ${testSuiteWithoutExt}"/>
+		
+		
+		<basename property="suiteAbs" file="${suite.dir}"/>
+
+		<echo message="test: suiteAbs = ${suiteAbs}"/>		
+		<mkdir dir="${report.xml}/${suiteAbs}/${testSuiteWithoutExt}"/>		
+		
+		<junit printsummary="withOutAndErr" fork="true" haltonfailure="no" haltonerror="no" >	
+			<jvmarg value="-DconfigFile=${configFileAbs}" />
+			<jvmarg value="-DTestCaseFile=${suiteName}" />
+			<jvmarg value="-DStopOnError=${StopOnError}" /> 			
+			<jvmarg value="-DExtentPath=${ExtentPath}" />
+			<classpath>     
+				<fileset dir="./" includes="${buildJar}" />	
+				<fileset dir="${lib.dir}" includes="junit*.jar" />
+			</classpath>
+			<formatter type="plain" />
+			<formatter type="xml" />
+			<batchtest  todir="${report.xml}/${suiteAbs}/${testSuiteWithoutExt}" >				
+				<zipfileset src="./${buildJar}" includes="**/KWTest.class" />	  
+			</batchtest>    
+		</junit>
+	</target>
+
+	
+	
+	<target name="junitreport">
+		<junitreport todir="${report.html}">
+			<fileset dir="${report.xml}">
+				<include name="**/*.xml"/>
+			</fileset>
+			<report format="frames" todir="${report.html}"/>
+		</junitreport>
+	</target>
+</project>

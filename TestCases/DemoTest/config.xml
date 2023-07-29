@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<TestData index="Common">
+		<Browser>Chrome</Browser>
+	</TestData>
+	
+	<TestData index="InsightSoftware">
+		<Server>insightsoftware.com</Server>
+		<LayoutMap>InsightSoftware.xml</LayoutMap>	
+		<Port>80</Port>
+	</TestData>
+	
+	
+</Root>

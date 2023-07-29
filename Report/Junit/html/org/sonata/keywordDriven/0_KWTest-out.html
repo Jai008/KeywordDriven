@@ -1,0 +1,45 @@
+<html xmlns:string="xalan://java.lang.String" xmlns:lxslt="http://xml.apache.org/xslt">
+<head>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Standard Output from KWTest</title>
+</head>
+<body>
+<pre>xml file  = C:\Users\jayachandra.m\Desktop\Hackathon\Framework\TestCases\DemoTest\config.xml
+test case file: C:\Users\jayachandra.m\Desktop\Hackathon\Framework\TestCases\DemoTest\DemoTest.xlsx
+ExtentPath = Report\Extent_02-7--_17-24-36
+
+NavigateToAction, page = InsightSoftware
+browser is CHROME, server is insightsoftware.com, port is 80
+Driver : ChromeDriver: chrome on XP (7c22b595912dc49c1aff0a45c4880e38)
+browser is CHROME, server is insightsoftware.com, port is 80
+LayoutMaps\InsightSoftware.xml
+baseURL = http://insightsoftware.com
+
+ClickAction, Element = Button:InsightSoftwareHomePage
+performAction() in ClickAction class: elementType = Button, element =InsightSoftwareHomePage
+
+ClickAction, Element = Button:SolutionsLink
+performAction() in ClickAction class: elementType = Button, element =SolutionsLink
+
+ClickAction, Element = Button:AtlasLink
+performAction() in ClickAction class: elementType = Button, element =AtlasLink
+
+TypeAction, Element = TextBox:EmailTextBox Data = abc@abc.com
+inputData read from test case is abc@abc.com
+TypeAction: inputData final is abc@abc.com
+
+GetTextAction, Element = Label:SolutionsLink
+GetTextAction : widget = SolutionsLink : text =Solutions
+Data repo = size 1
+Data repo =  {SolutionsLink=Solutions}
+
+GetTextAction, Element = Label:SolutionsLink
+GetTextAction : widget = SolutionsLink : text =Solutions
+Data repo = size 1
+Data repo =  {SolutionsLink=Solutions}
+
+AssertAction, Element = SolutionsLink
+AssertAction, Assertion type = IsVisible
+</pre>
+</body>
+</html>

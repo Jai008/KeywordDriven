@@ -1,0 +1,48 @@
+Testsuite: org.sonata.keywordDriven.KWTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 29.739 sec
+------------- Standard Output ---------------
+xml file  = C:\Users\jayachandra.m\Desktop\Hackathon\Framework\TestCases\DemoTest\config.xml
+test case file: C:\Users\jayachandra.m\Desktop\Hackathon\Framework\TestCases\DemoTest\DemoTest.xlsx
+ExtentPath = Report\Extent_02-7--_17-24-36
+
+NavigateToAction, page = InsightSoftware
+browser is CHROME, server is insightsoftware.com, port is 80
+Driver : ChromeDriver: chrome on XP (7c22b595912dc49c1aff0a45c4880e38)
+browser is CHROME, server is insightsoftware.com, port is 80
+LayoutMaps\InsightSoftware.xml
+baseURL = http://insightsoftware.com
+
+ClickAction, Element = Button:InsightSoftwareHomePage
+performAction() in ClickAction class: elementType = Button, element =InsightSoftwareHomePage
+
+ClickAction, Element = Button:SolutionsLink
+performAction() in ClickAction class: elementType = Button, element =SolutionsLink
+
+ClickAction, Element = Button:AtlasLink
+performAction() in ClickAction class: elementType = Button, element =AtlasLink
+
+TypeAction, Element = TextBox:EmailTextBox Data = abc@abc.com
+inputData read from test case is abc@abc.com
+TypeAction: inputData final is abc@abc.com
+
+GetTextAction, Element = Label:SolutionsLink
+GetTextAction : widget = SolutionsLink : text =Solutions
+Data repo = size 1
+Data repo =  {SolutionsLink=Solutions}
+
+GetTextAction, Element = Label:SolutionsLink
+GetTextAction : widget = SolutionsLink : text =Solutions
+Data repo = size 1
+Data repo =  {SolutionsLink=Solutions}
+
+AssertAction, Element = SolutionsLink
+AssertAction, Assertion type = IsVisible
+------------- ---------------- ---------------
+------------- Standard Error -----------------
+Starting ChromeDriver 114.0.5735.90 (386bc09e8f4f2e025eddae123f36f6263096ae49-refs/branch-heads/5735@{#1052}) on port 28797
+Only local connections are allowed.
+Please see https://chromedriver.chromium.org/security-considerations for suggestions on keeping ChromeDriver safe.
+ChromeDriver was started successfully.
+------------- ---------------- ---------------
+
+Testcase: test[DemoTest on CHROME] took 29.014 sec
